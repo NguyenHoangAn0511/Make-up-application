@@ -1,0 +1,10 @@
+###### Requirements with Version Specifiers ######`
+###### python==3.9.0 conda-forge ######`
+streamlit==0.71.0
+numpy==1.19.4
+opencv-contrib-python==4.4.0.46
+dlib==19.21.0
+cmake==3.18.4.post1
+imutils==0.5.3
+pillow==8.0.1
+matplotlib==3.3.3
