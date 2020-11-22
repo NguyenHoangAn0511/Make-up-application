@@ -21,11 +21,17 @@ You can now view your Streamlit app in your browser.
   Network URL: http://192.168.1.5:8501
 ```
 Link to streamlit: https://www.streamlit.io/
-## Check list:
+## Make up:
 - [x] Upload Image
 - [x] Process uploaded image
 - [x] Save Image to Database
 - [x] Interactive Web app
-- [ ] Face Filter
-- [ ] Sticker
-- [ ] Image search
+- [x] Face Filter (Vignette)
+- [ ] Dye hair & better eyebrow color
+- [ ] Face Sticker
+## Image Retrieval:
+- [x] Upload Image
+- [ ] Database
+- [ ] Extract feature (Vgg19, Resnet)
+- [ ] Return relevant images
+- [x] Interactive Web app
