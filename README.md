@@ -1,4 +1,4 @@
-# Make up application
+# Make up and Image retrieval application
 ## Group member:
 * **Nguyen Hoang An** - *18520430@gm.uit.edu.vn*
 * **Nguyen Huynh Anh** - *18520456@gm.uit.edu.vn*
