@@ -26,7 +26,8 @@ Link to streamlit: https://www.streamlit.io/
 - [x] Process uploaded image
 - [x] Save Image to Database
 - [x] Interactive Web app
-- [x] Face Filter (Vignette)
+- [x] Face detection (Facial Landmark, Face parsing)
+- [ ] Image filter (Vintage, ...)
 - [ ] Dye hair & better eyebrow color
 - [ ] Face Sticker
 ## Image Retrieval:
