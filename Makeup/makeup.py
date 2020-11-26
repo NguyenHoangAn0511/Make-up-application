@@ -9,8 +9,8 @@ import streamlit as st
 
 hog_face_detector = dlib.get_frontal_face_detector()
 cnn_face_detector = dlib.cnn_face_detection_model_v1(
-    'mmod_human_face_detector.dat')
-predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
+    'dat/mmod_human_face_detector.dat')
+predictor = dlib.shape_predictor('dat/shape_predictor_68_face_landmarks.dat')
 
 
 class MakeUp():
@@ -132,5 +132,5 @@ class MakeUp():
             out_image = self.Contrast(out_image)
             out_image = self.Clarity(out_image)
             out_image = self.Color(out_image)
-            # out_image.save('result.jpg')
+            out_image.save('image/final_result.jpg')
         return out_image

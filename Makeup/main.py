@@ -2,7 +2,7 @@ import streamlit as st
 from makeup import MakeUp
 from PIL import Image
 import numpy as np
-
+from vintage import Vintage
 IMAGE = []
 
 def main():
@@ -45,8 +45,11 @@ def MakeUpScreen():
     
     with col1:
         st.header('Preset')
-        PRESET = st.selectbox('', ['#A0511', '#A1506', '#B1812', '#V0504'])
-        APPLY = st.button('Apply preset')
+        PRESET = st.selectbox('', ['#A0511', '#A1506', '#B1812', '#V0504', '#Vintage'])
+        if PRESET == '#Vintage':
+            grain = st.slider('Grain amount', 0, 100, 40, 1)
+        else:
+            APPLY = st.button('Apply preset')
         
         if PRESET == '#A0511' and APPLY:
             color = '#aa0511'
@@ -98,6 +101,8 @@ def MakeUpScreen():
             Makeup_Object = MakeUp('image/USE_THIS.jpg', color, intensity,
                                 brightness, contrast, clarity, color_intensity)
             Result = Makeup_Object.Merge_Makeup()
+            if PRESET == '#Vintage':
+                Result = Vintage(Result, grain)
             IMG_PLACE = st.empty()
             if int(np.sum(Result)) != 1:
                 st.header('Make up')
@@ -109,25 +114,37 @@ def MakeUpScreen():
 
 def FaceFilterScreen():
     st.title("Face Filter")
+    st.markdown('_**Comming soon**_')
 
 
 def StickerScreen():
     st.title("Sticker")
+    st.markdown('_**Comming soon**_')
 
 
 def SearchScreen():
     st.title("Search")
-    col1, col2 = st.beta_columns([3, 1])
-    with col1:
-        image_to_search = st.file_uploader(
-            label='', type=['jpg', 'png', 'jpeg'], accept_multiple_files=False)
-        search_button = st.button('Search')
-    with col2:
-        if search_button and image_to_search:
-            image = Image.open(image_to_search)
-            st.image(image, use_column_width=True)
+    st.markdown('_**Comming soon**_')
+    # col1, col2 = st.beta_columns([3, 1])
+    # with col1:
+    #     image_to_search = st.file_uploader(
+    #         label='', type=['jpg', 'png', 'jpeg'], accept_multiple_files=False)
+    #     search_button = st.button('Search')
+    # with col2:
+    #     if search_button and image_to_search:
+    #         image = Image.open(image_to_search)
+    #         st.image(image, use_column_width=True)
+
+    ################################################################################
+
     # Image retrival part - List relevant result
+    # image_to_search = st.file_uploader(
+    #         label='', type=['jpg', 'png', 'jpeg'], accept_multiple_files=True)
+    # search_button = st.button('Search')
     # line_dict = {}
+
+    # # col1, col2, col3, col4 = st.beta_columns([1,1,1,1])
+
     # for i in range(len(image_to_search)):
     #     line_dict[i] = st.empty()
     # if search_button:
