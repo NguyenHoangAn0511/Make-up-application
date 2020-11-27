@@ -1,5 +1,5 @@
 import cv2
-from PIL import Image, ImageDraw, ImageEnhance
+from PIL import Image, ImageDraw, ImageEnhance, ImageOps
 import numpy as np
 # import matplotlib.pyplot as plt
 import dlib
@@ -15,12 +15,12 @@ predictor = dlib.shape_predictor('dat/shape_predictor_68_face_landmarks.dat')
 
 class MakeUp():
     def __init__(
-            self, path, color, intensity,
+            self, image, color, intensity,
             brightness, contrast, clarity, color_intensity):
         super(MakeUp, self).__init__()
-        self.path = path
-        self.image = cv2.imread(self.path)
-        self.Resize()
+        self.image = image
+        # self.image = cv2.imread(self.path)
+        # self.Resize()
         self.color = color
         self.intensity = intensity
         self.brightness = brightness
@@ -28,12 +28,6 @@ class MakeUp():
         self.clarity = clarity
         self.color_intensity = color_intensity
 
-    def Resize(self):
-        w, h = self.image.shape[:2]
-        while w > 1000 or h > 1000:
-            w = int(w * .6)
-            h = int(h * .6)
-        self.image = cv2.resize(self.image, (h, w), interpolation = cv2.INTER_AREA)
 
     @st.cache(suppress_st_warning=False)
     def HEX2RGBA(self, hex, op):
@@ -60,7 +54,7 @@ class MakeUp():
     @st.cache(suppress_st_warning=False)
     def Clarity(self, image):
         enhancer = ImageEnhance.Sharpness(image)
-        im_output = enhancer.enhance(((self.clarity * 5) / 100) + (0.5 + (self.clarity * 5) / 100))
+        im_output = enhancer.enhance(((self.clarity * 5) / 100))# + (0.5 + (self.clarity * 5) / 100))
         # im_output.save('result.jpg')
         return im_output
 
@@ -73,17 +67,21 @@ class MakeUp():
 
     @st.cache(suppress_st_warning=False)
     def Eyes_Lip(self):
-        gray_image = cv2.cvtColor(self.image, cv2.COLOR_RGB2GRAY)
+
+        np_image = np.array(self.image)
+        cv2_image = cv2.cvtColor(np_image, cv2.COLOR_RGB2BGR)
+        
+        gray_image = cv2.cvtColor(cv2_image, cv2.COLOR_RGB2GRAY)
 
         faces = hog_face_detector(gray_image, 1)
 
         if len(faces) == 0:
-            return 1
+            return self.image
 
         shape = predictor(gray_image, faces[0])
         shape = face_utils.shape_to_np(shape)
 
-        imageRGB = cv2.cvtColor(self.image, cv2.COLOR_BGR2RGB)
+        imageRGB = cv2.cvtColor(cv2_image, cv2.COLOR_BGR2RGB)
 
         pil_image = Image.fromarray(imageRGB)
         draw = ImageDraw.Draw(pil_image, 'RGBA')
@@ -110,8 +108,8 @@ class MakeUp():
 
         draw.polygon(top_lip, fill=self.color)
         draw.polygon(bottom_lip, fill=self.color)
-        draw.polygon(right_eyebrow, fill=(0, 0, 0, 150))
-        draw.polygon(left_eyebrow, fill=(0, 0, 0, 150))
+        # draw.polygon(right_eyebrow, fill=(0, 0, 0, 150))
+        # draw.polygon(left_eyebrow, fill=(0, 0, 0, 150))
         draw.line(left_eye, fill=(0, 0, 0, 200), width=3)
         draw.line(right_eye, fill=(0, 0, 0, 200), width=3)
 
@@ -127,10 +125,9 @@ class MakeUp():
 
     def Merge_Makeup(self):
         out_image = self.Eyes_Lip()
-        if out_image != 1:
-            out_image = self.Brightness(out_image)
-            out_image = self.Contrast(out_image)
-            out_image = self.Clarity(out_image)
-            out_image = self.Color(out_image)
-            out_image.save('image/final_result.jpg')
+        out_image = self.Brightness(out_image)
+        out_image = self.Contrast(out_image)
+        out_image = self.Clarity(out_image)
+        out_image = self.Color(out_image)
+        out_image.save('image/final_result.jpg')
         return out_image
