@@ -3,6 +3,7 @@ from makeup import MakeUp
 from PIL import Image
 import cv2
 import numpy as np
+import Filter
 from Filter import Vintage, Posterize, Resize
 from HairEyebrow import Hair_and_Eyebrow
 
@@ -52,7 +53,14 @@ def MakeUpScreen():
     
     with col1:
         st.header('_**Filter**_ me!')
-        PRESET = st.selectbox('', ['#Real-me!', '#A0511', '#A1506', '#B1812', '#V0504', '#Vintage', '#Posterize'])
+        PRESET = st.selectbox('', 
+        ['#Real-me!', '#1977', '#Toaster',
+        '#Aden', '#Rise', '#Earlybird', '#Vintage', '#Posterize',
+        '#Gotham', '#Brannan', '#Clarendon', '#Gingham',
+        '#Kelvin', '#Lark', '#Lofi',
+        '#Maven', '#Nashville',
+        '#Reyes', '#Stinson',
+        '#Walden', '#Willow', '#Xpro2'])
         
         if PRESET == '#Vintage' or PRESET == '#Posterize':
             if PRESET == '#Vintage':
@@ -62,35 +70,6 @@ def MakeUpScreen():
 
         st.header('_**Dye**_ me!')
         HAIR = st.selectbox('', ['#Real-me!', '#GOLD', '#RED', '#DEEP-BLUE', '#PURR-PLE', '#MINT', '#GRIIN', '#OCEAN-BLUE'])
-
-        if PRESET == '#A0511':
-            color = '#aa0511'
-            intensity = 60
-            color_intensity = 26
-            brightness = 5
-            contrast = 16
-            clarity = -10
-        if PRESET == '#A1506':
-            color = '#aa1506'
-            intensity = 50
-            color_intensity = 35
-            brightness = 15
-            contrast = 10
-            clarity = -20
-        if PRESET == '#B1812':
-            color = '#1b21b8'
-            intensity = 45
-            color_intensity = 18
-            brightness = 12
-            contrast = 30
-            clarity = 10
-        if PRESET == '#V0504':
-            color = '#dd0504'
-            intensity = 45
-            color_intensity = -10
-            brightness = 15
-            contrast = 19
-            clarity = 10
 
     with col2:
         if UPLOADED_IMAGE:
@@ -145,10 +124,51 @@ def MakeUpScreen():
                                 brightness, contrast, clarity, color_intensity)
             Result = Makeup_Object.Merge_Makeup()
             IMG_PLACE = st.empty()
+            
             if PRESET == '#Vintage':
                 Result = Vintage(Result, grain)
             elif PRESET == '#Posterize':
                 Result = Posterize(Result, level)
+            elif PRESET == '#1977':
+                Result = Filter._1977(Result)
+            elif PRESET == '#Aden':
+                Result = Filter.aden(Result)
+            elif PRESET == '#Brannan':
+                Result = Filter.Brannan(Result)
+            elif PRESET == '#Clarendon':
+                Result = Filter.Clarendon(Result)
+            elif PRESET == '#Earlybird':
+                Result = Filter.Earlybird(Result)
+            elif PRESET == '#Gingham':
+                Result = Filter.Gingham(Result)
+            elif PRESET == '#Kelvin':
+                Result = Filter.Kelvin(Result)
+            elif PRESET == '#Lark':
+                Result = Filter.Lark(Result)
+            elif PRESET == '#Lofi':
+                Result = Filter.Lofi(Result)
+            elif PRESET == '#Maven':
+                Result = Filter.Maven(Result)
+            elif PRESET == '#Nashville':
+                Result = Filter.Nasville(Result)
+            elif PRESET == '#Reyes':
+                Result = Filter.Reyes(Result)
+            elif PRESET == '#Rise':
+                Result = Filter.Rise(Result)
+            elif PRESET == '#Stinson':
+                Result = Filter.Stinson(Result)
+            elif PRESET == '#Toaster':
+                Result = Filter.Toaster(Result)
+            elif PRESET == '#Walden':
+                Result = Filter.Walden(Result)
+            elif PRESET == '#Willow':
+                Result = Filter.Willow(Result)
+            elif PRESET == '#Xpro2':
+                Result = Filter.Xpro2(Result)
+            elif PRESET == '#Gotham':
+                Result = Filter.Gotham(Result, 0.75, 0.6, 0.75)
+            
+            
             if int(np.sum(Result)) != 1:
                 st.header('_**Purr-fect**_ me!')
                 IMG_PLACE.image(Result, use_column_width=True)
@@ -168,37 +188,37 @@ def StickerScreen():
 
 
 def SearchScreen():
-    st.title("Search")
-    st.markdown('_**Comming soon**_')
-    col1, col2 = st.beta_columns([3, 1])
-    with col1:
-        UPLOADED_IMAGE = st.file_uploader(
-            label='', type=['jpg', 'png', 'gif'], accept_multiple_files=False)
-        search_button = st.button('Search')
-    with col2:
-        if search_button and UPLOADED_IMAGE:
-            image = Image.open(UPLOADED_IMAGE)
-            st.image(image, use_column_width=True)
+    # st.title("Search")
+    # st.markdown('_**Comming soon**_')
+    # col1, col2 = st.beta_columns([3, 1])
+    # with col1:
+    #     UPLOADED_IMAGE = st.file_uploader(
+    #         label='', type=['jpg', 'png', 'gif'], accept_multiple_files=True)
+    #     search_button = st.button('Search')
+    # with col2:
+    #     if search_button and UPLOADED_IMAGE:
+    #         image = Image.open(UPLOADED_IMAGE)
+    #         st.image(image, use_column_width=True)
 
     ################################################################################
 
-    # Image retrival part - List relevant result
-    # UPLOADED_IMAGE = st.file_uploader(
-    #         label='', type=['jpg', 'png', 'jpeg'], accept_multiple_files=True)
-    # search_button = st.button('Search')
-    # line_dict = {}
+    #Image retrival part - List relevant result
+    UPLOADED_IMAGE = st.file_uploader(
+            label='', type=['jpg', 'png', 'jpeg'], accept_multiple_files=True)
+    search_button = st.button('Search')
+    line_dict = {}
 
-    # # col1, col2, col3, col4 = st.beta_columns([1,1,1,1])
+    # col1, col2, col3, col4 = st.beta_columns([1,1,1,1])
 
-    # for i in range(len(UPLOADED_IMAGE)):
-    #     line_dict[i] = st.empty()
-    # if search_button:
-    #     j = 0
-    #     for i in UPLOADED_IMAGE:
-    #         image = Image.open(i)
-    #         line_dict[j].image(image, use_column_width=True)
-    #         j = j + 1
-    #         print(len(UPLOADED_IMAGE))
+    for i in range(len(UPLOADED_IMAGE)):
+        line_dict[i] = st.empty()
+    if search_button:
+        j = 0
+        for i in UPLOADED_IMAGE:
+            image = Image.open(i)
+            line_dict[j].image(image, use_column_width=True)
+            j = j + 1
+            print(len(UPLOADED_IMAGE))
 
 
 if __name__ == '__main__':

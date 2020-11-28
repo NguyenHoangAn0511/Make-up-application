@@ -2,16 +2,16 @@ import cv2
 import os
 import numpy as np
 from skimage.filters import gaussian
-from test import evaluate
+from parsing import evaluate
 from PIL import Image
 
 cp = 'dat/79999_iter.pth'
 
 def sharpen(img):
     img = img * 1.0
-    gauss_out = gaussian(img, sigma=5, multichannel=True)
+    gauss_out = gaussian(img, sigma=3, multichannel=True)
 
-    alpha = 1.5
+    alpha = 1.2
     img_out = (img - gauss_out) * alpha + img
 
     img_out = img_out / 255.0

@@ -1,10 +1,8 @@
 import cv2
 from PIL import Image, ImageDraw, ImageEnhance, ImageOps
 import numpy as np
-# import matplotlib.pyplot as plt
 import dlib
 from imutils import face_utils
-# import imutils
 import streamlit as st
 
 hog_face_detector = dlib.get_frontal_face_detector()
@@ -110,8 +108,8 @@ class MakeUp():
         draw.polygon(bottom_lip, fill=self.color)
         # draw.polygon(right_eyebrow, fill=(0, 0, 0, 150))
         # draw.polygon(left_eyebrow, fill=(0, 0, 0, 150))
-        draw.line(left_eye, fill=(0, 0, 0, 200), width=3)
-        draw.line(right_eye, fill=(0, 0, 0, 200), width=3)
+        draw.line(left_eye, fill=(0, 0, 0, 200), width=4)
+        draw.line(right_eye, fill=(0, 0, 0, 200), width=4)
 
         # out_image = self.Brightness(pil_image)
         # out_image = self.Contrast(out_image)
