@@ -50,7 +50,7 @@ networkx==2.5
 notebook==6.1.5
 numpy
 olefile==0.46
-opencv
+opencv-contrib-python==4.4.0.46
 packaging==20.4
 pandas==1.1.4
 pandocfilters==1.4.3
