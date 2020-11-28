@@ -1,1 +1,2 @@
 cmake==3.18.4.post1
+wheel
