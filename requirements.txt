@@ -1,7 +1,12 @@
-cmake==3.18.4.post1
-matplotlib==3.3.3
+wheel
 numpy
-opencv-python-headless
+pandas
+plotly
+opencv-contrib-python
+cmake
+dlib
+face_recognition
+matplotlib==3.3.3
 pilgram==1.2.0
 Pillow
 scikit-image==0.17.2
@@ -10,5 +15,3 @@ streamlit==0.71.0
 torch==1.7.0
 torchvision==0.8.1
 tornado==6.1
-dlib
-face_recognition
