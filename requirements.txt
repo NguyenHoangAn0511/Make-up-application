@@ -1,5 +1,4 @@
 cmake
-face_recognition
 matplotlib==3.3.3
 numpy
 opencv-python-headless
@@ -11,3 +10,5 @@ streamlit==0.71.0
 torch==1.7.0
 torchvision==0.8.1
 tornado==6.1
+dlib
+face_recognition
