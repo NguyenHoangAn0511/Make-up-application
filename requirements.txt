@@ -1,6 +1,4 @@
 cmake==3.18.4.post1
-freeglut3-dev
-libgtk2.0-dev
 matplotlib==3.3.3
 numpy
 opencv-python-headless
