@@ -3,7 +3,7 @@ wheel
 dlib
 matplotlib==3.3.3
 numpy
-opencv-contrib-python==4.4.0.46
+opencv-python-headless
 pilgram==1.2.0
 Pillow
 scikit-image==0.17.2
