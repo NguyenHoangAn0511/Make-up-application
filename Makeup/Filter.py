@@ -94,6 +94,7 @@ def Posterize(image, level):
         image = enhancer.enhance(2)
     if level == 3:
         image = enhancer.enhance(1.4)
+    image.save('image/Posterize.jpg')
     return image
 
 
