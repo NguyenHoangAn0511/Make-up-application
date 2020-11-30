@@ -1,5 +1,5 @@
 import cv2
-from PIL import Image, ImageDraw, ImageEnhance, ImageOps
+from PIL import Image, ImageDraw, ImageEnhance
 import numpy as np
 import dlib
 from imutils import face_utils
@@ -112,8 +112,8 @@ class MakeUp():
         draw.polygon(top_lip, fill=self.color)
         draw.polygon(bottom_lip, fill=self.color)
         # Eyeliner
-        draw.line(left_eye, fill=(0, 0, 0, 200), width=4)
-        draw.line(right_eye, fill=(0, 0, 0, 200), width=4)
+        draw.line(left_eye, fill=(0, 0, 0, 150), width=5)
+        draw.line(right_eye, fill=(0, 0, 0, 150), width=5)
 
         # out_image = self.Brightness(pil_image)
         # out_image = self.Contrast(out_image)
