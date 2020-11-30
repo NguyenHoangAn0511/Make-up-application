@@ -12,59 +12,78 @@ VINTAGE_COLOR_LEVELS = {
     'b' : [53, 53, 53, 54, 54, 54, 55, 55, 55, 56, 57, 57, 57, 58, 58, 58, 59, 59, 59, 60, 61, 61, 61, 62, 62, 63, 63, 63, 64, 65, 65, 65, 66, 66, 67, 67, 67, 68, 69, 69, 69, 70, 70, 71, 71, 72, 73, 73, 73, 74, 74, 75, 75, 76, 77, 77, 78, 78, 79, 79, 80, 81, 81, 82, 82, 83, 83, 84, 85, 85, 86, 86, 87, 87, 88, 89, 89, 90, 90, 91, 91, 93, 93, 94, 94, 95, 95, 96, 97, 98, 98, 99, 99, 100, 101, 102, 102, 103, 104, 105, 105, 106, 106, 107, 108, 109, 109, 110, 111, 111, 112, 113, 114, 114, 115, 116, 117, 117, 118, 119, 119, 121, 121, 122, 122, 123, 124, 125, 126, 126, 127, 128, 129, 129, 130, 131, 132, 132, 133, 134, 134, 135, 136, 137, 137, 138, 139, 140, 140, 141, 142, 142, 143, 144, 145, 145, 146, 146, 148, 148, 149, 149, 150, 151, 152, 152, 153, 153, 154, 155, 156, 156, 157, 157, 158, 159, 160, 160, 161, 161, 162, 162, 163, 164, 164, 165, 165, 166, 166, 167, 168, 168, 169, 169, 170, 170, 171, 172, 172, 173, 173, 174, 174, 175, 176, 176, 177, 177, 177, 178, 178, 179, 180, 180, 181, 181, 181, 182, 182, 183, 184, 184, 184, 185, 185, 186, 186, 186, 187, 188, 188, 188, 189, 189, 189, 190, 190, 191, 191, 192, 192, 193, 193, 193, 194, 194, 194, 195, 196, 196, 196, 197, 197, 197, 198, 199]
     }
 
+
 def _1977(image):
     return pilgram._1977(image)
+
 
 def aden(image):
     return pilgram.aden(image)
 
+
 def Brannan(image):
     return pilgram.brannan(image)
+
 
 def Clarendon(image):
     return pilgram.clarendon(image)
 
+
 def Earlybird(image):
     return pilgram.earlybird(image)
+
 
 def Gingham(image):
     return pilgram.gingham(image)
 
+
 def Kelvin(image):
     return pilgram.kelvin(image)
+
 
 def Lark(image):
     return pilgram.lark(image)
 
+
 def Lofi(image):
     return pilgram.lofi(image)
+
 
 def Maven(image):
     return pilgram.maven(image)
 
+
 def Nasville(image):
     return pilgram.nashville(image)
+
 
 def Reyes(image):
     return pilgram.reyes(image)
 
+
 def Rise(image):
     return pilgram.rise(image)
+
 
 def Stinson(image):
     return pilgram.stinson(image)
 
+
 def Toaster(image):
     return pilgram.toaster(image)
+
 
 def Walden(image):
     return pilgram.walden(image)
 
+
 def Willow(image):
     return pilgram.willow(image)
 
+
 def Xpro2(image):
     return pilgram.xpro2(image)
+
 
 def Posterize(image, level):
     image = ImageOps.posterize(image, level)
@@ -76,6 +95,7 @@ def Posterize(image, level):
     if level == 3:
         image = enhancer.enhance(1.4)
     return image
+
 
 def Vintage(image, noise):
   if image.mode != 'RBG':
@@ -99,6 +119,7 @@ def Gotham(image, r_boost, g_boost, b_boost):
     blurred = filters.gaussian(merged, sigma=10, multichannel=True)
     image = np.clip(merged * 1.3 - blurred * 0.3, 0, 1.0)
     return image
+
 
 def Resize(image):
         desired_size = 1024
@@ -135,6 +156,7 @@ def modify_all_pixels(im, pixel_callback):
     for x in range(width):
         for y in range(height):
             pxls[x,y] = pixel_callback(x, y, *pxls[x, y])
+
 
 def vintage_colors(im, color_map=VINTAGE_COLOR_LEVELS):
     r_map = color_map['r']

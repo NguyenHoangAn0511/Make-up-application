@@ -5,6 +5,7 @@ import dlib
 from imutils import face_utils
 import streamlit as st
 
+
 hog_face_detector = dlib.get_frontal_face_detector()
 cnn_face_detector = dlib.cnn_face_detection_model_v1(
     'dat/mmod_human_face_detector.dat')
@@ -104,10 +105,13 @@ class MakeUp():
             self.color = self.HEX2RGBA(
                 self.color, int((self.intensity / 100) * 150))
 
-        draw.polygon(top_lip, fill=self.color)
-        draw.polygon(bottom_lip, fill=self.color)
         # draw.polygon(right_eyebrow, fill=(0, 0, 0, 150))
         # draw.polygon(left_eyebrow, fill=(0, 0, 0, 150))
+
+        # Lip
+        draw.polygon(top_lip, fill=self.color)
+        draw.polygon(bottom_lip, fill=self.color)
+        # Eyeliner
         draw.line(left_eye, fill=(0, 0, 0, 200), width=4)
         draw.line(right_eye, fill=(0, 0, 0, 200), width=4)
 
@@ -120,6 +124,7 @@ class MakeUp():
         # Out_image = np.array(pil_image)
         # cv2.imwrite('result.jpg', cv2.cvtColor(pil_image, cv2.COLOR_RGB2BGR))
         return pil_image
+
 
     def Merge_Makeup(self):
         out_image = self.Eyes_Lip()

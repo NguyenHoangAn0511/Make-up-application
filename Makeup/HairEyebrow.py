@@ -5,7 +5,9 @@ from skimage.filters import gaussian
 from parsing import evaluate
 from PIL import Image
 
+
 cp = 'dat/79999_iter.pth'
+
 
 def sharpen(img):
     img = img * 1.0
@@ -46,6 +48,7 @@ def hair(image, parsing, part=17, color=[230, 50, 20]):
     changed[parsing != part] = image[parsing != part]
     return changed
 
+
 def Hair_and_Eyebrow(image_path, COLOR):
     table = {
         'right eye brow': 2,
@@ -64,14 +67,6 @@ def Hair_and_Eyebrow(image_path, COLOR):
 
     for part, color in zip(parts, colors):
         cv2image = hair(cv2image, parsing, part, color)
-
-    # GOLD: colors = [[15, 75, 150], [15, 75, 150], [15, 75, 125]]
-    # RED: colors = [[15, 20, 150], [15, 20, 150], [15, 20, 125]]
-    # DEEP BLUE: colors = [[150, 25, 15], [150, 25, 15], [150, 25, 15]]
-    # PURPLE: colors = [[150, 25, 125], [150, 25, 125], [150, 25, 125]]
-    # MINT: colors = [[150, 120, 35], [150, 120, 35], [150, 120, 35]]
-    # GREEN: colors = [[35, 175, 64], [35, 175, 64], [35, 175, 64]]
-    # OCEAN BLUE: colors = [[210, 100, 10], [210, 100, 10], [210, 100, 10]]
     pil_image = cv2.cvtColor(cv2image, cv2.COLOR_BGR2RGB)
     pil_image = Image.fromarray(pil_image)
     return pil_image    
