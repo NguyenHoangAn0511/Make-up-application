@@ -1,3 +1,0 @@
-cmake==3.18.4.post1
-freeglut3-dev
-libgtk2.0-dev

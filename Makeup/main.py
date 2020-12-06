@@ -28,7 +28,7 @@ def main():
 def HomeScreen():
     st.title('Make up Application')
     st.header('> MemberS: <')
-    st.write('> :crown: **Nguyen Huynh Anh (Leader)**' )
+    st.write('> :cow: **Nguyen Huynh Anh (Leader)**' )
     st.write('>> :computer: **Nguyen Hoang An**')
     st.write('>> :pencil2: **Nguyen Ngoc Binh**')
     st.write('>> :moneybag: **Duong Trong Van**')
@@ -37,7 +37,7 @@ def MakeUpScreen():
     st.title("_**Purr-fect me!**_")
 
     color = st.sidebar.color_picker(label='Lip color')
-    intensity = st.sidebar.slider('Make up intensity', 0, 100, 50, 1)
+    intensity = st.sidebar.slider('Lip opacity', 0, 100, 50, 1)
     color_intensity = st.sidebar.slider('Color', -100, 100, 0, 1)
     brightness = st.sidebar.slider('Brightness', -100, 100, 0, 1)
     contrast = st.sidebar.slider('Contrast', -100, 100, 0, 1)

@@ -92,10 +92,18 @@ class MakeUp():
         top_lip = [shape[i] for i in indices]
         indices = [48, 60, 67, 66, 65, 64, 54, 55, 56, 57, 58, 59, 48]
         bottom_lip = [shape[i] for i in indices]
+        
         indices = [17, 18, 19, 20, 21]
         right_eyebrow = [shape[i] for i in indices]
         indices = [22, 23, 24, 25, 26]
         left_eyebrow = [shape[i] for i in indices]
+        
+        indices = [27, 28, 29, 30, 31, 32, 33, 34, 35, 27]
+        nose = [shape[i] for i in indices]
+
+        indices = [0, 1, 2, 3, 4, 5 , 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+        jaw = [shape[i] for i in indices]
+
         indices = [36, 37, 38, 39]
         left_eye = [shape[i] for i in indices]
         indices = [42, 43, 44, 45]
@@ -104,25 +112,37 @@ class MakeUp():
         if self.color[0] == '#':
             self.color = self.HEX2RGBA(
                 self.color, int((self.intensity / 100) * 150))
+        # # Test
+        # # Eyebrow
+        # draw.line(right_eyebrow, fill=(0, 0, 0, 150), width=10)
+        # draw.line(left_eyebrow, fill=(0, 0, 0, 150), width=10)
 
-        # draw.polygon(right_eyebrow, fill=(0, 0, 0, 150))
-        # draw.polygon(left_eyebrow, fill=(0, 0, 0, 150))
+        # # Nose
+        # draw.line(nose, fill=(0, 0, 0, 200), width=15)
 
+        # # Eyes
+        # draw.line(left_eye, fill=(255, 255, 0, 255), width=15)
+        # draw.line(right_eye, fill=(0, 255, 0, 255), width=15)
+
+        # # Lip
+        # draw.line(top_lip, fill=(0, 250, 255, 255), width=15)
+        # draw.line(bottom_lip, fill=(0, 0, 255, 255), width=15)
+
+        # # Jaw
+        # draw.line(jaw, fill=(255, 0, 0, 255), width=15)
+
+
+        # # End test
+
+        
         # Lip
         draw.polygon(top_lip, fill=self.color)
         draw.polygon(bottom_lip, fill=self.color)
+
         # Eyeliner
-        draw.line(left_eye, fill=(0, 0, 0, 150), width=5)
-        draw.line(right_eye, fill=(0, 0, 0, 150), width=5)
+        draw.line(left_eye, fill=(0, 0, 0, 200), width=5)
+        draw.line(right_eye, fill=(0, 0, 0, 200), width=5)
 
-        # out_image = self.Brightness(pil_image)
-        # out_image = self.Contrast(out_image)
-        # out_image = self.Clarity(out_image)
-        # out_image = self.Color(out_image)
-
-        # out_image.save('result.jpg')
-        # Out_image = np.array(pil_image)
-        # cv2.imwrite('result.jpg', cv2.cvtColor(pil_image, cv2.COLOR_RGB2BGR))
         return pil_image
 
 

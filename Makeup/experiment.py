@@ -1,22 +1,15 @@
-arr = []
-n = int(input())
-if n <= 20:
-  for i in range(n):
-    x = int(input())
-    arr.append(x)
+import matplotlib.pyplot as plt
+from pychubby.detect import LandmarkFace
+from pychubby.actions import Chubbify, AbsoluteMove
+import cv2
 
-arr.append(1)
-
-
-def dnc(arr, l, r):
-  if l > r:
-    return 0
-  if l == r:
-    return arr[l] * arr[l - 1] * arr[l + 1]
-  m = float('-inf')
-  for i in range(l, r + 1):
-    m = max(m, dnc(arr, l, i - 1) + dnc(arr, i + 1, r) +
-            (arr[i] * arr[l - 1] * arr[r + 1]))
-  return m
-
-print(dnc(arr, 0, n-1))
+img = plt.imread("image/USE_THIS.jpg")
+lf = LandmarkFace.estimate(img)
+# lf.plot()
+a = AbsoluteMove(y_shifts={30: 20, 29: 20})
+new_lfs, df = a.perform(lf)
+# cv2.imshow('m', new_lfs)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+print(new_lfs)
+new_lfs.plot(show_landmarks=False)

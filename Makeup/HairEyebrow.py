@@ -11,7 +11,7 @@ cp = 'dat/79999_iter.pth'
 
 def sharpen(img):
     img = img * 1.0
-    gauss_out = gaussian(img, sigma=3, multichannel=True)
+    gauss_out = gaussian(img, sigma=2, multichannel=True)
 
     alpha = 1.2
     img_out = (img - gauss_out) * alpha + img
