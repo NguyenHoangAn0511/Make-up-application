@@ -4,6 +4,13 @@
 * **Nguyen Huynh Anh** - *18520456@gm.uit.edu.vn*
 * **Nguyen Ngoc Binh** - *18520506@gm.uit.edu.vn*
 * **Duong Trong Van** - *18521630@gm.uit.edu.vn*
+## Demo:
+### Main screen:
+![alt text](https://github.com/NguyenHoangAn0511/Make-up-application-DeepLearning-Flask/blob/main/Makeup/example/main.jpeg)
+### Filter + Dye hair example:
+![alt text](https://github.com/NguyenHoangAn0511/Make-up-application-DeepLearning-Flask/blob/main/Makeup/example/POSTERIZE%20%2B%20OBLUE.jpeg)
+![alt text](https://github.com/NguyenHoangAn0511/Make-up-application-DeepLearning-Flask/blob/main/Makeup/example/PURRPLE-hair.jpeg)
+![alt text](https://github.com/NguyenHoangAn0511/Make-up-application-DeepLearning-Flask/blob/main/Makeup/example/MAKEUP-adjust.jpeg)
 ## Install requirements:
 Copy or move this requirements.txt to another environment and install with it.
 ```Shell
