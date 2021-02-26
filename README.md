@@ -9,7 +9,7 @@ Copy or move this requirements.txt to another environment and install with it.
 ```Shell
 pip install -r requirements.txt
 ```
-## Run streamlit (Change to MakeUp directory):
+## Run streamlit (Change to Makeup directory):
 ```
 streamlit run main.py
 ```
