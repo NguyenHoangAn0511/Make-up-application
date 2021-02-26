@@ -12,7 +12,6 @@
 ![alt text](https://github.com/NguyenHoangAn0511/Make-up-application-DeepLearning-Flask/blob/main/Makeup/example/PURRPLE-hair.jpeg)
 ![alt text](https://github.com/NguyenHoangAn0511/Make-up-application-DeepLearning-Flask/blob/main/Makeup/example/MAKEUP-adjust.jpeg)
 ## Install requirements:
-Copy or move this requirements.txt to another environment and install with it.
 ```Shell
 pip install -r requirements.txt
 ```
