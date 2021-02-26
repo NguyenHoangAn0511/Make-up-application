@@ -1,4 +1,4 @@
-# Make up and Image retrieval application
+# Make up application
 ## Group member:
 * **Nguyen Hoang An** - *18520430@gm.uit.edu.vn*
 * **Nguyen Huynh Anh** - *18520456@gm.uit.edu.vn*
@@ -30,9 +30,3 @@ Link to streamlit: https://www.streamlit.io/
 - [x] Image filter (Vintage, ...)
 - [x] Dye hair & better eyebrow color
 - [ ] Face Sticker
-## Image Retrieval:
-- [x] Upload Image
-- [ ] Database
-- [ ] Extract feature (Vgg19, Resnet)
-- [ ] Return relevant images
-- [x] Interactive Web app
