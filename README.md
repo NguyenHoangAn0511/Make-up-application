@@ -9,11 +9,19 @@
 =================
 
 <!--ts-->
+   * [Introduction](introduction)
    * [Install requirements](#install-requirements)
    * [Demo](#Demo)
    * [Run streamlit](#run-streamlit)
    * [Checklist](#Checklist)
 <!--te-->
+
+## Introduction
+This project is on the field of Computer Vision, an sub-domain of Computer Science. On this project, we combine two methods:
+* Facial landmark with HoG features 
+* [Face parsing](https://github.com/zllrunning/face-parsing.PyTorch)
+
+Futhermore, we use [Streamlit](https://streamlit.io/) - an open source framework to build our GUI 
 
 ## Install requirements
 ```Shell
@@ -41,7 +49,6 @@ You can now view your Streamlit app in your browser.
   Local URL: http://localhost:8501
   Network URL: http://192.168.1.5:8501
 ```
-Link to streamlit: https://www.streamlit.io/
 ## Checklist
 - [x] Upload Image
 - [x] Process uploaded image
