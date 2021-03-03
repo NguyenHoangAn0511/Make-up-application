@@ -11,9 +11,8 @@
 <!--ts-->
    * [Install requirements](#install-requirements)
    * [Demo](#Demo)
+   * [Run streamlit](#Run-streamlit(Change-to-Makeup-directory))
    * [Checklist](#Checklist)
-   * [Run streamlit](#Run-streamlit-(Change-to-Makeup-directory-)-)
-   
 <!--te-->
 
 ## Install requirements
